@@ -1,5 +1,5 @@
 const { Pool } = require('pg');
-const URI = 'postgres://kxgsvnke:V527n_xGglpQE4RmslL4eKE98ZBn4F3d@salt.db.elephantsql.com:5432/kxgsvnke%E2%80%99;'; 
+const URI = 'postgres://kxgsvnke:V527n_xGglpQE4RmslL4eKE98ZBn4F3d@salt.db.elephantsql.com:5432/'; 
 const pool = new Pool({ connectionString: URI}); 
 
 const userQueryString = (`CREATE TABLE IF NOT EXISTS users

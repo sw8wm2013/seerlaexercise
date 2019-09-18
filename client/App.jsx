@@ -1,18 +1,18 @@
 import React from 'react';
-import SignInPage from './pages/signInPage';
-import './App.css';
+import SignIn from './signIn.jsx';
+import SignUp from './signUp.jsx';
+import Explore from './explore.jsx';
+import Profile from './profile.jsx';
 
-
-function App(props) {
-
+const App = (props) => {
   return(
     <div>
-      <SignInPage/>
+      <SignIn/>
+      <SignUp/>
+      <Explore/>
+      <Profile/>
     </div>
-  )
-
-};
+  );
+}
 
 export default App;
-
-

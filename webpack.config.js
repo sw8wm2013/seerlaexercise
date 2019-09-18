@@ -1,10 +1,10 @@
 const path = require('path');
 
 module.exports = {
-  entry: './client/App.jsx',
+  entry: './client/index.js',
   output: {
     path: path.resolve(__dirname, 'build'),
-    publicPath: '/build/',
+    publicPath: path.resolve(__dirname, 'build'),
     filename: 'bundle.js'
   }, 
   module: {
@@ -28,11 +28,10 @@ module.exports = {
     }]
   },
   devServer: {
-    contentBase: path.join(__dirname, 'assets'),
-    publicPath: '/build/',
+    publicPath: path.resolve(__dirname, '/build/'),
     port: 8080,
     proxy: {
-      '/api': 'http://localhost:8080'
+      '/': 'http://localhost:3000'
     },
     hot: true,
   },
