@@ -1,16 +1,15 @@
 const { Pool } = require('pg');
-const URI = 'postgres://kxgsvnke:V527n_...@salt.db.elephantsql.com:5432/kxgsvnke'; 
+const URI = 'postgres://kxgsvnke:V527n_xGglpQE4RmslL4eKE98ZBn4F3d@salt.db.elephantsql.com:5432/kxgsvnke'; 
 const pool = new Pool({ connectionString: URI}); 
 
 const userQueryString = (`CREATE TABLE IF NOT EXISTS users
     (
     "id" SERIAL PRIMARY KEY NOT NULL,
-    "username" varchar(255) NOT NULL UNIQUE,
-    "password" varchar(255) NOT NULL UNIQUE,
-    "first_name" varchar(255) NOT NULL,
-    "last_name" varchar(255) NOT NULL,
-    "email" varchar(255) NOT NULL,
-    CONSTRAINT "user table_pk" PRIMARY KEY ("id")
+    username varchar (255) NOT NULL UNIQUE,
+    password varchar (255) NOT NULL UNIQUE,
+    first_name varchar (255) NOT NULL,
+    last_name varchar (255) NOT NULL,
+    email varchar (255) NOT NULL,
   );
 `); 
 
