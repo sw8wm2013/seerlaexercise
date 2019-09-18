@@ -16,11 +16,15 @@
   },
   "scripts": {
     "start": "",
+    "dev": "node server/server.js",
     "build": "",
     "test": "",
     "eject": ""
   },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "devDependencies": {
+    "bcrypt": "^3.0.6"
   }
 }
