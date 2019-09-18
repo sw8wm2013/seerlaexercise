@@ -5,16 +5,16 @@ const pool = new Pool({ connectionString: URI});
 
 const bookShelfQueryString = (`CREATE TABLE IF NOT EXISTS book_shelf 
   (
-    id SERIAL PRIMARY KEY git NOT NULL,
+    id SERIAL PRIMARY KEY NOT NULL,
     book_id INTEGER REFERENCES books(id) ON DELETE CASCADE,
-    shelf_id INTEGER REFERENCES shelf(id) ON DELETE CASCADE,
+    shelf_id INTEGER REFERENCES shelf(id) ON DELETE CASCADE
   );
 `); 
 
 pool.query(bookShelfQueryString, (err, res) => {
-  if (err) console.log(err)
+  if (err) console.log('your in the bookshelf', err)
   else console.log('Succcesfully Connected to Book Shelf Table')
-})
+});
 
 module.exports = {
   query: (text, params, callback) => {

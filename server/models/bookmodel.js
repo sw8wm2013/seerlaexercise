@@ -13,12 +13,12 @@ const bookQueryString = (`CREATE TABLE IF NOT EXISTS books
   year_published varchar (255) NOT NULL,
   language varchar (255),
   medium varchar (255),
-  publisher varchar (255),
+  publisher varchar (255)
   );
 `); 
 
 pool.query(bookQueryString, (err, res) => {
-  if (err) console.log(err)
+  if (err) console.log('your in the books', err)
   else console.log('Succcesfully Connected to Book Table')
 })
 

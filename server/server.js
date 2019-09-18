@@ -2,21 +2,22 @@ const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
+const authController = require('./authController');
 
 const app = express();
-const PORT = 3000; 
+const PORT = 8080; 
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
 
-app.post('signup', (req, res) => {
-  res.status(200).redirect('/secret');
+app.post('/signup', authController.signup, (req, res) => {
+  res.status(200).send(res.locals.user);
 });
 
-app.post('/login', (req, res) => {
-  res.status(200).redirect('/secret')
+app.post('/login', authController.login, (req, res) => {
+  res.status(200).send(res.locals.password);
 })
 
 app.listen(PORT, () => {

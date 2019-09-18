@@ -16,6 +16,7 @@
   },
   "scripts": {
     "start": "",
+    "dev": "node server/server.js",
     "build": "",
     "test": "",
     "eject": ""
