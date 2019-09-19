@@ -1,6 +1,9 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import UserContext from './userContext';
 
 const SignUp = (props) => {
+  const user = useContext(UserContext);
+  
   return(
     
   <div className="page-container" id="sign-in-page-container">

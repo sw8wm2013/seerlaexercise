@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Cabin|Fredericka+the+Great&display=swap');
+
+$logoFont: 'Fredericka the Great';
+$generalFont: 'Cabin';
+
+* {
+  box-sizing: border-box;
+  font-family: $generalFont;
+}
+
+#navbar {
+  display: flex;
+}

@@ -12,7 +12,7 @@ const PORT = 3000;
 // app.use(bodyParser.json());
 // app.use(cookieParser());
 app.use('/build', express.static(path.resolve(__dirname, '../build')));
-app.get('/', (req, res, next) => res.sendFile(path.join(__dirname, '../index.html')));
+app.get('/*', (req, res, next) => res.sendFile(path.join(__dirname, '../index.html')));
 
 
 // app.post('/signup', authController.signup, (req, res) => {
