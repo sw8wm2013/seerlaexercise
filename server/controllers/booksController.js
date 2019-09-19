@@ -42,4 +42,29 @@ booksController.addBookByAuthor = (req, res, next) => {
     console.log('made it through the middleware')
 };
 
+booksController.addBookByTitle = (req, res, next) => {
+    // const title = req.body.title;
+    const title = 'harry potter and the chamber of secrets';
+    // API call to retrieve the books by the title
+    fetch(`https://www.googleapis.com/books/v1/volumes?q=intitle${title}&key=${googleBooksAPI.key}`)
+    .then(response => response.json())
+    .then(data => {
+        for(let i = 0; i < data.length; i++){
+            res.locals.title = data.items[i].volumeInfo.title;
+            res.locals.author = data.items[i].volumeInfo.authors;
+            res.locals.publisher = data.items[i].volumeInfo.publisher;
+            res.locals.published = data.items[i].volumeInfo.publishedDate;
+            res.locals.isbn = data.items[i].volumeInfo.industryIdentifiers[1].identifier;
+            res.locals.genre = data.items[i].volumeInfo.categories;
+            res.locals.medium = data.items[i].volumeInfo.printType;
+            res.locals.language = data.items[i].volumeInfo.language; 
+        }
+        console.log(res.locals.title)
+        // console.log(res.locals)
+    })
+    .then(console.log(res.locals.isbn))
+    .then(next())
+    
+};
+
 module.exports = booksController;
