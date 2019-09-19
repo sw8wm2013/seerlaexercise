@@ -6,8 +6,73 @@ $generalFont: 'Cabin';
 * {
   box-sizing: border-box;
   font-family: $generalFont;
+  margin: 0px;
+}
+
+body {
+  // position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#root {
+  width: 100%;
 }
 
 #navbar {
   display: flex;
+  justify-content: space-between;
+  margin: 10px;
+
+  .logo {
+    margin: 5px;
+    padding: 5px;
+    font-family: $logoFont;
+  }
+
+  #nav-links {
+    margin: 5px;
+    padding: 5px;
+    display: flex;
+    justify-content: space-evenly;
+    align-content: center;
+  }
+
+  .nav-link {
+    padding: 10px;
+    text-decoration: none;
+  }
 }
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+}
+
+// singup-co ntainer 
+
+// position: absolute;
+// width: 603px;
+// height: 421px;
+// left: 416px;
+// top: 240px;
+
+// background: #000000;
+// mix-blend-mode: darken;
+// opacity: 0.8;
+// border: 1px solid #ADAAAA;
+// box-sizing: border-box;
+// box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+// border-radius: 2px;
+
+// Book -card 
+
+// position: absolute;
+// width: 260px;
+// height: 271px;
+// left: 42px;
+// top: 357px;
+
+// background: #FFFFFF;
+// box-shadow: 1px 4px 4px rgba(0, 0, 0, 0.1);
+
