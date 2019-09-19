@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const authController = require('./controllers/authController');
 const userController = require('./controllers/usercontroller');
+const booksController = require('./controllers/booksController');
 
 const app = express();
 const PORT = 3000; 
@@ -18,6 +19,10 @@ app.get('/', authController.signup, (req, res) => {
   res.status(200).send(res.locals.user);
 });
 
+
+app.post('/addTitle', booksController.addBookByTitle, (req, res) => {
+  res.status(200).send(res.locals.results)
+})
 
 app.post('/signup', authController.signup, (req, res) => {
   res.status(200).send(res.locals.user);
