@@ -15,7 +15,10 @@ const App = (props) => {
     username: 'Eric',
     shelves: [{
       name: 'Horror',
-      books: ['It']
+      books: [{title: 'It', author: 'Stephen King', published: 1999, genre: 'horror', summary: 'it happens'}]
+    }, {
+      name: 'To Read',
+      books: [{title: 'everything is illuminated', author: 'jonathan saffran foer', published: 2004, genre: 'magical realism', summary: 'time travel'}]
     }],
   });
 
@@ -27,7 +30,7 @@ const App = (props) => {
     setUser({shelves: [...user.shelves, shelfObj]});
   }
 
-  const [bookList, setBookList] = useState([]);
+  const [bookList, setBookList] = useState([{title: 'It', author: 'Stephen King', published: 1999, genre: 'horror', summary: 'it happens'}]);
 
   const addBookToBookList = (book) => {
     setBookList([...bookList, book]);
