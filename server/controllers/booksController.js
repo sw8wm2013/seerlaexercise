@@ -1,5 +1,5 @@
 const fetch = require('node-fetch');
-const { googleBooksAPI } = require('../secret');
+const { googleBooksAPI } = require('../secret.js');
 const DB = require('../models/database');
 // Bconst userName = require('../secret');
 const booksController = {};
