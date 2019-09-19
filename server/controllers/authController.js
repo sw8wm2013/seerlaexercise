@@ -7,7 +7,7 @@ signup: (req, res, next) => {
   const { userName, password, firstName, lastName, email} = req.body;
   bcrypt.hash(password, 10, function(err, hash) {
     const params = [userName, hash, firstName, lastName, email]
-    DB.query('INSERT INTO users (username, password, first_name, last_name, email ) VALUES ($1, $2, $3, $4, $5) returning *;', params, (err, data) => {
+    DB.query('INSERT INTO users (username, password, first_name, last_name, email) VALUES ($1, $2, $3, $4, $5) returning *;', params, (err, data) => {
       if (err) {
         return next(err);
       } else {

@@ -19,7 +19,7 @@ const bookQueryString = (`CREATE TABLE IF NOT EXISTS books
   isbn VARCHAR (255) NOT NULL UNIQUE,
   book_title VARCHAR (255) NOT NULL,
   author VARCHAR (255) NOT NULL,
-  genre VARCHAR (255) NOT NULL UNIQUE,
+  genre VARCHAR (255) NOT NULL,
   year_published VARCHAR (255) NOT NULL,
   language VARCHAR (255),
   medium VARCHAR (255),
