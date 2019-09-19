@@ -7,7 +7,7 @@ signup: (req, res, next) => {
   const { userName, password, firstName, lastName, email} = req.body;
   bcrypt.hash(password, 10, function(err, hash) {
     const params = [userName, hash, firstName, lastName, email]
-    userDB.query('INSERT INTO users (username, password, first_name, last_name, email ) VALUES ($1, $2, $3, $4, $5) returning *;', params, (err, data) => {
+    DB.query('INSERT INTO users (username, password, first_name, last_name, email) VALUES ($1, $2, $3, $4, $5) returning *;', params, (err, data) => {
       if (err) {
         return next(err);
       } else {
@@ -22,8 +22,9 @@ signup: (req, res, next) => {
 login: (req, res, next) => {
     const {userName, password } = req.body;
     const param = [userName];
-     userDB.query(`SELECT password FROM users WHERE username = ($1);`, param, (err, data) => {
+     DB.query(`SELECT password FROM users WHERE username = ($1);`, param, (err, data) => {
       if (err) {
+        console.log(err);
         return next(err);
       } else {
         const hashedPassword = data.rows[0].password;

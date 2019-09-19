@@ -19,7 +19,7 @@ const bookQueryString = (`CREATE TABLE IF NOT EXISTS books
   isbn VARCHAR (255) NOT NULL UNIQUE,
   book_title VARCHAR (255) NOT NULL,
   author VARCHAR (255) NOT NULL,
-  genre VARCHAR (255) NOT NULL UNIQUE,
+  genre VARCHAR (255) NOT NULL,
   year_published VARCHAR (255) NOT NULL,
   language VARCHAR (255),
   medium VARCHAR (255),
@@ -38,7 +38,7 @@ const bookShelfQueryString = (`CREATE TABLE IF NOT EXISTS book_shelf
 const shelfQueryString = (`CREATE TABLE IF NOT EXISTS shelf 
   (
   id SERIAL PRIMARY KEY NOT NULL,
-  user_id INT REFERENCES users (id) ON DELETE CASCADE,
+  user_id INT REFERENCES users (id) ON DELETE CASCADE NOT NULL,
   shelf_name VARCHAR (255) NOT NULL UNIQUE,
   shelf_description VARCHAR (255)
 
