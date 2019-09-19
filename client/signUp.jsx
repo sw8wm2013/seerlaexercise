@@ -6,7 +6,7 @@ const SignUp = (props) => {
   
   return(
     
-  <div className="page-container" id="sign-in-page-container">
+  <div className="page-container" id="sign-up-container">
 
   <div className="input-container">
    <label htmlFor="email-field" className="text">Email</label>
