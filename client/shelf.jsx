@@ -1,12 +1,13 @@
-import Book from './book-comp';
+import React from 'react';
+import Book from './book.jsx';
 
 
 function Shelf(props){
   return(
     <div className="shelf-container">
-      <h1>{props.genre}</h1>
+      <h3>{props.name}</h3>
       <div className="shelf-books">
-        <Book/>
+        <Book name={props.books[0]} />
       </div>
     </div>
   )
