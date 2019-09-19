@@ -48,22 +48,42 @@ booksController.addBookByTitle = (req, res, next) => {
     // API call to retrieve the books by the title
     fetch(`https://www.googleapis.com/books/v1/volumes?q=intitle${title}&key=${googleBooksAPI.key}`)
     .then(response => response.json())
-    .then(data => {
-        for(let i = 0; i < data.length; i++){
-            res.locals.title = data.items[i].volumeInfo.title;
-            res.locals.author = data.items[i].volumeInfo.authors;
-            res.locals.publisher = data.items[i].volumeInfo.publisher;
-            res.locals.published = data.items[i].volumeInfo.publishedDate;
-            res.locals.isbn = data.items[i].volumeInfo.industryIdentifiers[1].identifier;
-            res.locals.genre = data.items[i].volumeInfo.categories;
-            res.locals.medium = data.items[i].volumeInfo.printType;
-            res.locals.language = data.items[i].volumeInfo.language; 
-        }
-        console.log(res.locals.title)
-        // console.log(res.locals)
+    .then((data) => {
+        res.locals.allTheData = data.items;
     })
-    .then(console.log(res.locals.isbn))
-    .then(next())
+    .catch (e => next({
+        log: `There was an issue in the booksContoller.addBookByAuthor: ERROR: ${typeof e === 'object' ? JSON.stringify(e) : e}`,
+        message: {err: 'That bookController is causing me problems AGAIN'}
+    }));
+
+    console.log(res.locals.allTheData)
+
+    // function createBooks (booksData) {
+    //     let bookResults = [];
+    //     for(let i = 0; i < booksData.items.length - 1; i++){
+    //         let tempBooks ={};
+    //         if(booksData.items[i] !== undefined){
+    //             tempBooks = {
+    //                 title: booksData.items[i].volumeInfo.title || undefined, 
+    //                 author: booksData.items[i].volumeInfo.authors || undefined,
+    //                 publisher: booksData.items[i].volumeInfo.publisher || undefined,
+    //                 published: booksData.items[i].volumeInfo.publishedDate || undefined,
+    //                 isbn: booksData.items[i].volumeInfo.industryIdentifiers[1].identifier || undefined,
+    //                 genre: booksData.items[i].volumeInfo.categories || undefined,
+    //                 medium: booksData.items[i].volumeInfo.printType || undefined,
+    //                 language: booksData.items[i].volumeInfo.language || undefined, 
+    //              };
+    //              console.log(i)
+    //              console.log(tempBooks) 
+    //              bookResults.push(tempBooks) 
+    //         } else if (booksData.items[i] === undefined){
+    //             tempBooks = {}
+    //         }
+    //     }
+    //     res.locals.bookResults = bookResults;
+    //     console.log(res.locals.bookResults)
+
+    // }
     
 };
 
