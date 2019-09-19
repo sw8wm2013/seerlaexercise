@@ -1,4 +1,4 @@
-const userDB = require('./models/usermodel'); 
+const DB = require('../models/database'); 
 const bcrypt = require('bcrypt');
 
 const authController = {

@@ -2,8 +2,8 @@ const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
-const authController = require('./authController');
-const userController = require('./usercontroller');
+const authController = require('./controllers/authController');
+const userController = require('./controllers/usercontroller');
 
 const app = express();
 const PORT = 3000; 
@@ -11,6 +11,11 @@ const PORT = 3000;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
+
+app.get('/', authController.signup, (req, res) => {
+  res.status(200).send(res.locals.user);
+});
+
 
 app.post('/signup', authController.signup, (req, res) => {
   res.status(200).send(res.locals.user);
@@ -36,5 +41,5 @@ app.use((err, req, res, next) => {
 });
 
 app.listen(PORT, () => {
-  console.log('Listening on Port 8080')
+  console.log('Listening on Port 3000')
 }); 
