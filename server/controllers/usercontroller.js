@@ -1,4 +1,4 @@
-const userDB = require('./models/usermodel'); 
+const userDB = require('../models/database'); 
 
 const userController = {
 getProfileDetails: (req, res, next) => {
