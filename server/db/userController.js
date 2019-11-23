@@ -1,8 +1,6 @@
 const db = require("./db");
 const userController = {};
 userController.postuser = (req, res, next) => {
-  console.log("***Inside the post-user middleware");
-  console.log(req.body);
   const params = [
     req.body.firstName,
     req.body.lastName,
@@ -20,9 +18,6 @@ userController.postuser = (req, res, next) => {
       } else {
         const newUser = result.rows[0];
         res.locals.addedUser = newUser.username;
-        console.log(
-          `This is what is getting savied on res.locals: ${res.locals.addedUser}`
-        );
         return next();
       }
     }
