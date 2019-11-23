@@ -1,43 +1,30 @@
-const path = require('path');
-const express = require('express');
-const bodyParser = require('body-parser');
-const cookieParser = require('cookie-parser');
-const authController = require('./controllers/authController');
-const userController = require('./controllers/usercontroller');
-const booksController = require('./controllers/booksController');
+const path = require("path");
+const express = require("express");
+const bodyParser = require("body-parser");
 
-const userRouter = require('./routes/user');
+const userController = require("./db/userController");
 const app = express();
-const PORT = 3000; 
+const PORT = 3000;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(cookieParser());
-app.use('/api/user', userRouter);
 
-app.use('/build', express.static(path.resolve(__dirname, '../build')));
+app.use("/build", express.static(path.resolve(__dirname, "../build")));
 
-app.get('/*', (req, res, next) => res.sendFile(path.join(__dirname, '../index.html')));
+app.get("/*", (req, res, next) =>
+  res.sendFile(path.join(__dirname, "../index.html"))
+);
 
-// app.get('/', authController.signup, (req, res) => {
-//   res.status(200).send(res.locals.user);
-// });
-
-app.post('/addTitle', booksController.addBookByTitle, (req, res) => {
-  res.status(200).send(res.locals.results)
-})
-
-app.post('/signup', authController.signup, (req, res) => {
-  res.status(200).send(res.locals.user);
+app.post("/api/registeruser", userController.postuser, (req, res) => {
+  console.log(req.body);
+  res.status(200).json(res.locals.addedUser);
 });
-
-
 
 app.use((err, req, res, next) => {
   const defaultErr = {
-    log: 'Express error handler caught unknown middleware error',
+    log: "Express error handler caught unknown middleware error",
     status: 400,
-    message: {err: 'An error occurred'},
+    message: { err: "An error occurred" }
   };
   const errorObj = Object.assign({}, defaultErr, err);
   console.log(errorObj.log);
@@ -45,5 +32,5 @@ app.use((err, req, res, next) => {
 });
 
 app.listen(PORT, () => {
-  console.log('Listening on Port 3000')
-}); 
+  console.log("Listening on Port 3000");
+});
