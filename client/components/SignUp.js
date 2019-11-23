@@ -12,34 +12,62 @@ const SignUp = props => {
   const { value: password, bind: bindPassword } = useInput("");
   const { value: confirmPassword, bind: bindConfirmPassword } = useInput("");
   return (
-    <div>
-      <h1>Welcome to SEER! Please create an account.</h1>
-      <form>
+    <div className="signup">
+      <h1 className="welcome">Welcome to SEER! Please create an account.</h1>
+      <form className="userform">
         <label htmlFor="firstName">
           First Name:
-          <input type="text" placeholder="First Name" {...bindFirstName} />
+          <input
+            className="firstName"
+            type="text"
+            placeholder="First Name"
+            name="firstName"
+            {...bindFirstName}
+          />
         </label>
         <label htmlFor="lastName">
           Last Name:
-          <input type="text" placeholder="Last Name" {...bindLastName} />
+          <input
+            className="lastName"
+            type="text"
+            placeholder="Last Name"
+            name="lastName"
+            {...bindLastName}
+          />
         </label>
         <label htmlFor="username">
           Username:
-          <input type="text" placeholder="Username" {...bindUsername} />
+          <input
+            type="text"
+            placeholder="Username"
+            name="username"
+            {...bindUsername}
+          />
         </label>
         <label htmlFor="email">
           Email:
-          <input type="email" placeholder="Email Address" {...bindEmail} />
+          <input
+            type="email"
+            placeholder="Email Address"
+            name="email"
+            {...bindEmail}
+          />
         </label>
         <label htmlFor="password">
           Password:
-          <input type="password" placeholder="Password" {...bindPassword} />
+          <input
+            type="password"
+            placeholder="Password"
+            name="password"
+            {...bindPassword}
+          />
         </label>
         <label htmlFor="confirmPassword">
           Confirm Password:
           <input
             type="password"
             placeholder="Confirm Password"
+            name="confirmpassword"
             {...bindConfirmPassword}
           />
         </label>

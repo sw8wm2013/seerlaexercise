@@ -12,7 +12,6 @@ const initialState = {
 const usersReducer = (state = initialState, action) => {
   switch (action.type) {
     case types.UPDATE_USER_INPUT: {
-      console.log("**THIS IS THE ACTION PAYLOAD", action.payload);
       const newFirstName = action.payload.firstName;
       const newLastName = action.payload.lastName;
       const newUsername = action.payload.username;

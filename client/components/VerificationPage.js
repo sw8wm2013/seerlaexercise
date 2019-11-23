@@ -24,7 +24,7 @@ const VerficationPage = ({
   submitUser
 }) => {
   return (
-    <div>
+    <div className="verificationpage">
       <h1> Please confirm your information: </h1>
       <p>First Name: {firstName}</p>
       <p>Last Name: {lastName}</p>

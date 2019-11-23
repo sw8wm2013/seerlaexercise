@@ -1,7 +1,6 @@
 import * as types from "./actionTypes";
 
 export const updateUserInput = function(user) {
-  console.log(user);
   return { type: types.UPDATE_USER_INPUT, payload: user };
 };
 
@@ -14,8 +13,6 @@ export const submitUser = () => (dispatch, getState) => {
     password
   } = getState().usersReducer;
 
-  console.log(firstName);
-
   fetch("/api/registeruser", {
     method: "POST",
     headers: { "Content-type": "application/json" },
@@ -26,9 +23,7 @@ export const submitUser = () => (dispatch, getState) => {
       email,
       password
     })
-  })
-    .then(res => {
-      return res.json();
-    })
-    .then(json => console.log(json));
+  }).then(res => {
+    return res.json();
+  });
 };

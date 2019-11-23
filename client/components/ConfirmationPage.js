@@ -1,7 +1,9 @@
 import React from "react";
 
-const ConfirmationPage = () => {
-  return <h1>Thank you for registering</h1>;
+const ConfirmationPage = props => {
+  return (
+    <h1 className="confirmmessage">Congratulations! You are registered.</h1>
+  );
 };
 
 export default ConfirmationPage;
